@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Resume Web Site</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="card mb-4">
+                    <header class="card-header text-center">
+                        <%= dataItems[0].name %>
+                    </header>
+                    <div class="card-body">
+                        <main>
+                            <p class="card-text animate__animated animate__fadeInDown">Sünnikuupäev: <%= dataItems[0].dateofbirth %></p>
+                            <p class="card-text animate__animated animate__fadeInDown">Elukoht: <%= dataItems[0].residence %></p>
+                            <p class="card-text animate__animated animate__fadeInDown">Haridus: <%= dataItems[0].education %></p>
+                            <h4 class="animate__animated animate__fadeIn">Tehnilised Oskused</h4>
+                            <p class="card-text lead animate__animated animate__fadeInLeft animate__delay-0.5s"><%= dataItems[0].technicalskills %></p>
+                            <h4 class="animate__animated animate__fadeIn">Iseloomustus</h4>
+                            <p class="card-text lead animate__animated animate__fadeInLeft animate__delay-1s"><%= dataItems[0].softskills %></p>
+                        </main>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <form method="get" action="/admin">
+                    <button class="btn btn-primary btn-md">Admin</button>
+                </form>
+                    <footer class="footer pt-4"></footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var d = new Date();
+        var date = d.getUTCDate();
+        var year = d.getUTCFullYear();
+        var month = d.getUTCMonth() + 1;
+        document.querySelector('.footer').innerHTML = `&#169 ${date}/${month}/${year} A.P`;
+    </script>
+    
+</body>
+</html>
